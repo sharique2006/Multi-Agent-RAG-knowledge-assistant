@@ -1,0 +1,74 @@
+# =============================================================================
+# Personal Knowledge Assistant - Git Ignore Configuration
+# =============================================================================
+
+# Environment files (IMPORTANT: Never commit API keys!)
+.env
+*.env.local
+*.env.*.local
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.spyderproject
+.spyproject
+
+# Storage (keep structure, ignore data)
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/vectors/*
+!storage/vectors/.gitkeep
+storage/metadata.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# mypy
+.mypy_cache/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak

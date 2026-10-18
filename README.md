@@ -362,3 +362,30 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 ## 🙏 Acknowledgements
 
 Built with [OpenAI](https://openai.com/), [LangGraph](https://github.com/langchain-ai/langgraph), [LangChain](https://www.langchain.com/), [FAISS](https://github.com/facebookresearch/faiss), [FastAPI](https://fastapi.tiangolo.com/), [PostgreSQL](https://www.postgresql.org/), [SQLAlchemy](https://www.sqlalchemy.org/), and [Gradio](https://www.gradio.app/).
+
+
+# Multi-Agent RAG Knowledge Assistant
+
+🚀 **Live Demo:** http://13.233.251.95:7860
+
+💻 **GitHub Repository:** https://github.com/sharique2006/Multi-Agent-RAG-knowledge-assistant
+
+An AI-powered knowledge assistant that uses Retrieval-Augmented Generation (RAG) and multiple agents to retrieve relevant information from documents, generate answers, verify responses, and format results.
+
+## Key Features
+- Document ingestion and text chunking
+- FAISS-based vector search and semantic retrieval
+- Multi-agent workflow using LangGraph
+- LLM-powered answer generation
+- Answer verification and formatting
+- Gradio web interface
+- FastAPI backend and optional PostgreSQL chat history
+- AWS EC2 deployment
+
+## Tech Stack
+Python, LangGraph, FAISS, Gradio, FastAPI, SQLAlchemy, PostgreSQL, OpenAI API, AWS EC2, Git and GitHub.
+
+## Try the Project
+Open the live demo, ask a question about an uploaded document, and review the generated response.
+
+> Note: The demo currently uses HTTP. Avoid entering sensitive information.

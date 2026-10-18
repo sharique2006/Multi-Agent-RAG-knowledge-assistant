@@ -504,21 +504,24 @@ Please complete **Step 1** first:
         # Append using Gradio 6.0 messages format
         history.append({"role": "user", "content": message})
         history.append({"role": "assistant", "content": response})
-        # Save question and answer to PostgreSQL
-        db = SessionLocal()
-        try:
-            record = ChatHistory(
-                session_id="gradio-session",
-                question=message.strip(),
-                answer=response
-            )
-            db.add(record)
-            db.commit()
-        except Exception:
-            db.rollback()
-            logger.error(f"Failed to save chat history: {traceback.format_exc()}")
-        finally:
-            db.close()
+        # Save chat history only when a database is configured
+        if SessionLocal is not None:
+            db = SessionLocal()
+            try:
+                record = ChatHistory(
+                    session_id="gradio-session",
+                    question=message.strip(),
+                    answer=response
+                )
+                db.add(record)
+                db.commit()
+            except Exception:
+                db.rollback()
+                logger.error(
+                    f"Failed to save chat history: {traceback.format_exc()}"
+                )
+            finally:
+                db.close()
     except Exception as e:
         logger.error(f"Chat error: {traceback.format_exc()}")
         error_response = f"❌ Error processing your question: {str(e)}"

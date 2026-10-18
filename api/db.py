@@ -1,6 +1,4 @@
-
 import os
-
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -8,22 +6,24 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+engine = None
+SessionLocal = None
 
-if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL is missing from the .env file")
-
-engine = create_engine(DATABASE_URL)
-
-SessionLocal = sessionmaker(
-    bind=engine,
-    autoflush=False,
-    autocommit=False,
-)
+if DATABASE_URL:
+    engine = create_engine(DATABASE_URL)
+    SessionLocal = sessionmaker(
+        bind=engine,
+        autoflush=False,
+        autocommit=False,
+    )
 
 Base = declarative_base()
 
 
 def get_db():
+    if SessionLocal is None:
+        raise RuntimeError("DATABASE_URL is not configured")
+
     db = SessionLocal()
     try:
         yield db
